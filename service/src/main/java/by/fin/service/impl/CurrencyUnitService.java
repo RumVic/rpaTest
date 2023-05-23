@@ -2,18 +2,20 @@ package by.fin.service.impl;
 
 import by.fin.module.ICurrencyUnitRepository;
 import by.fin.module.entity.CurrencyUnit;
-import by.fin.service.DTO.CurrencyUnitDTO;
+import by.fin.service.dto.CurrencyUnitDTO;
 import by.fin.service.ICurrencyUnitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Random;
+
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class CurrencyUnitImpl implements ICurrencyUnitService {
+public class CurrencyUnitService implements ICurrencyUnitService {
 
     @Autowired
     public final  ICurrencyUnitRepository repository;
@@ -21,7 +23,7 @@ public class CurrencyUnitImpl implements ICurrencyUnitService {
     @Override
     public CurrencyUnit create(CurrencyUnitDTO currencyUnitDTO) {
         CurrencyUnit currencyUnit = CurrencyUnit.builder()
-                .id(2l)
+                .id(new Random().nextLong())
                 .idOnSite(currencyUnitDTO.getCur_ID())
                 .nameOfUnit(currencyUnitDTO.getCur_Name())
                 .AbbreviationOfUnit(currencyUnitDTO.getCur_Abbreviation())
@@ -38,8 +40,8 @@ public class CurrencyUnitImpl implements ICurrencyUnitService {
     }
 
     @Override
-    public CurrencyUnit read() {
-        return null;
+    public CurrencyUnit read(int idOnSite) {
+        return repository.findByIdOnSite(idOnSite);
     }
 
     @Override

@@ -3,6 +3,8 @@ package by.fin.module.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @ToString
@@ -16,7 +18,7 @@ public class CurrencyUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "currency_unit_id")
-    private String id;
+    private Long id;
     @Column
     private int idOnSite;
     @Column
@@ -26,5 +28,5 @@ public class CurrencyUnit {
     @Column
     private double officialRate;
     @Column
-    private Long dtDayTime;
+    private LocalDateTime dtDayTime;
 }

@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Weekends {
 private final WeekendService weekendService;
-
     @GetMapping
     public ResponseEntity<List<Weekend>>findAll(){
         return new ResponseEntity<>(weekendService.findAll(), HttpStatus.OK);

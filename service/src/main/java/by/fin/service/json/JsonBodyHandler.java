@@ -1,4 +1,4 @@
-package by.fin.web.controller.JSON;
+package by.fin.service.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;

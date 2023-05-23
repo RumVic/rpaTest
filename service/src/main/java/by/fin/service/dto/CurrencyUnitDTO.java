@@ -1,9 +1,9 @@
-package by.fin.web.controller.DTO;
+package by.fin.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class CurrencyUnitDTO {
     private int Cur_ID;
     private LocalDateTime Date;
